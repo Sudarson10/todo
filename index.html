@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            body{
+                background: linear-gradient(to top left, #f4871b, #a309e5);
+            }
+
+            .head{
+                text-align: center;
+                font-weight:700px;
+                padding:10px;
+                font-size:30px;
+                font-weight: 500;
+                color:#0a0a03;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+            .container{
+                margin:auto;
+                width:400px;
+                justify-content: center;
+                background-color: white;
+                color:black;
+                border-radius: 10px;
+                box-sizing: border-box;
+                position:relative;
+                padding:20px;
+                top:100px;
+            }
+
+            .button{
+                border: none;
+                outline:none;
+                border-radius: 40px;
+                color:black;
+                background-color: #ff5945;
+                color:#fff;
+                cursor: pointer;
+                font-size:16px 50px;
+                padding:16px;
+                right:20px;
+            }
+
+            .input{
+                flex:1;
+                border:none;
+                padding:20px;
+                background: #edeef0;
+            }
+
+            .l{
+                padding:20px;
+                border-bottom:2px black;
+                color:#6354d4;
+            }
+
+            .l::after{
+                display:inline;
+                right:20;
+                position:absolute;
+                content:"X";
+                color:#ff0000;
+                cursor: pointer;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="head">TO-DO APP</div>
+        <div class="container">
+            <input type="text" placeholder="add your next activity" class="input"  id="activity" >
+            <button class="button"onclick="func1()">ADD</button>
+            <div class="task">
+
+            </div>
+        </div>
+    </body>
+
+    <script>
+
+        const task=document.querySelector(".task");
+        const activity=document.getElementById("activity");
+        
+        function func1(){
+            if(activity.value==' '){
+                alert("enter something ");
+            }
+            else{
+            let li=document.createElement('p');
+            li.innerHTML=activity.value;
+            li.classList.add("l");
+            task.appendChild(li);
+            activity.value=" ";
+            li.addEventListener('click',function(){
+            task.removeChild(li);
+        });
+        li.addEventListener('wheel',function(){
+            task.style.textDecoration="line-through";
+        });
+        }
+        }
+        
+    </script>
+</html>
